@@ -9,21 +9,21 @@ namespace PointTask
 
     public List<Point> GetPoints()
     {
-      Console.WriteLine("\nEnter the coordinates of first point.");
-      Console.WriteLine("X1: ");
-      double X1 = double.Parse(Console.ReadLine());
-      Console.WriteLine("Y1: ");
-      double Y1 = double.Parse(Console.ReadLine());
-      listOfPoints.Add(new Point(X1, Y1));
-
-      Console.WriteLine("\nEnter the coordinates of second point.");
-      Console.WriteLine("X2: ");
-      double X2 = double.Parse(Console.ReadLine());
-      Console.WriteLine("Y2: ");
-      double Y2 = double.Parse(Console.ReadLine());
-      listOfPoints.Add(new Point(X2, Y2));
-
+      for(int i = 1; i < 3; i++)
+      {
+        EnterTheCoordinates(i.ToString());
+      }
       return listOfPoints;
+    }
+
+    private void EnterTheCoordinates(string param)
+    {
+      Console.WriteLine("\nEnter the coordinates of {0} point.", param);
+      Console.WriteLine("X{0}: ", param);
+      double X = double.Parse(Console.ReadLine());
+      Console.WriteLine("Y{0}: ", param);
+      double Y = double.Parse(Console.ReadLine());
+      listOfPoints.Add(new Point(X, Y));
     }
   }
 }
