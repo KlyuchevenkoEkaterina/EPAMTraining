@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConvertingStringToInteger
 {
@@ -15,7 +11,6 @@ namespace ConvertingStringToInteger
       {
         string inputString = Console.ReadLine();
         Console.Write(inputString.ConvertStringToInteger());
-
       }
       catch (Exception)
       {

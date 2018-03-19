@@ -11,8 +11,9 @@ namespace ConvertingStringToInteger
       {
         throw new Exception();
       }
-      //int index = IsStringHasNegativeNumber(inputString); 
-      //int result = Ibh(inputString, index); 
+
+      IsStringHasNegativeNumber(inputString);
+
       StringBuilder stringBuilder = new StringBuilder();
       for (int i = 0; i < inputString.Length; i++)
       {
@@ -25,63 +26,32 @@ namespace ConvertingStringToInteger
           }
           else break;
         }
-
       }
-      int result = int.Parse(stringBuilder.ToString());
-      return result;
+      return int.Parse(stringBuilder.ToString());
     }
 
     private static bool IsStringConsistsOnlyOfLetters(string inputString)
     {
-      char[] numbers = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-      foreach (var number in numbers)
+      foreach (var element in inputString)
       {
-        foreach (var element in inputString)
+        if (char.IsDigit(element))
         {
-          if (inputString.Contains(number.ToString()))
-          {
-            return true;
-          }
+          return true;
         }
       }
       return false;
     }
 
-    //private static int IsStringHasNegativeNumber(string inputString) 
-    //{ 
-    // StringBuilder stringBuilder = new StringBuilder(); 
-    // int index = 0; 
-    // for(int i = 0; i < inputString.Length; i++) 
-    // { 
-    // if(inputString[i]=='-' && char.IsDigit(inputString[i + 1])) 
-    // { 
-    // Console.Write('-'); 
-    // index = inputString.IndexOf(inputString[i]); 
-    // break; 
-    // } 
-    // } 
-    // return index; 
-
-    //} 
-
-    //private static int Ibh(string inputString, int index) 
-    //{ 
-    // StringBuilder stringBuilder = new StringBuilder(); 
-    // for (int i = index; i < inputString.Length; i++) 
-    // { 
-    // if (char.IsDigit(inputString[i+1])) 
-    // { 
-    // stringBuilder.Append(inputString[i+1]); 
-    // if (inputString[i+1] == inputString[inputString.Length - 1] || char.IsDigit(inputString[i + 2])) 
-    // { 
-    // continue; 
-    // } 
-    // else break; 
-    // } 
-
-    // } 
-    // int result = int.Parse(stringBuilder.ToString()); 
-    // return result; 
-    //} 
+    private static void IsStringHasNegativeNumber(string inputString)
+    {
+      for (int i = 0; i < inputString.Length; i++)
+      {
+        if (inputString[i] == '-' && char.IsDigit(inputString[i + 1]))
+        {
+          Console.Write('-');
+          break;
+        }
+      }
+    }
   }
 }
