@@ -6,17 +6,30 @@ namespace PointTask
   {
     static void Main(string[] args)
     {
-      ConsolePointsInput consolePointsInput = new ConsolePointsInput();
-      var listPoints = consolePointsInput.GetPoints();
-
-      if(listPoints[0] == listPoints[1])
+      bool pointInputNeeded = true;
+      while (pointInputNeeded)
       {
-        Console.WriteLine("Points are equal.");
+        try
+        {
+          ConsolePointsInput consolePointsInput = new ConsolePointsInput();
+          var listPoints = consolePointsInput.GetPoints();
+          pointInputNeeded = false;
+          if (listPoints[0] == listPoints[1])
+          {
+            Console.WriteLine("Points are equal.");
+          }
+          else
+          {
+            Console.WriteLine("Points aren't equal.");
+          }
+          Console.WriteLine(listPoints[0].Equals(listPoints[1]));
+          Console.ReadKey();
+        }
+        catch (FormatException)
+        {
+          Console.WriteLine("Wrong format of point!");
+        }
       }
-      else
-      {
-        Console.WriteLine("Points aren't equal.");
-      }      
     }
   }
 }
